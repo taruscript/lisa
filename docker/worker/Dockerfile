@@ -32,7 +32,7 @@ COPY --chown=lisa:lisa ./requirements.txt /home/lisa/requirements.txt
 ENV PYTHONPATH /home/lisa
 
 WORKDIR /home/lisa
-
+RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN pip install -r requirements.txt \
     && iprange -j data/blacklists/* > data/ipblacklist \
     && ./docker/worker/maxmind.sh $maxmind_key \

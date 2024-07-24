@@ -8,7 +8,8 @@ COPY web_frontend ./
 
 ENV REACT_APP_HOST=$webhost
 
-RUN yarn && yarn build
+RUN npm install
+RUN npm run build
 
 
 
